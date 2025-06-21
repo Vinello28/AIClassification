@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Nuova versione di ChatGPT rivoluziona la scrittura",
+    "category": "AI generativa",
+    "confidence": 1.0,
+    "confidence_level": "Alta"
+  },
+  {
+    "id": 2,
+    "title": "Sistema di riconoscimento facciale per aeroporti",
+    "category": "Computer Vision",
+    "confidence": 0.8333333333333334,
+    "confidence_level": "Alta"
+  },
+  {
+    "id": 3,
+    "title": "Robot chirurgici con intelligenza artificiale",
+    "category": "Robotica AI",
+    "confidence": 0.5,
+    "confidence_level": "Media"
+  },
+  {
+    "id": 4,
+    "title": "Tesla presenta il nuovo sistema di guida autonoma",
+    "category": "Guida Autonoma",
+    "confidence": 1.0,
+    "confidence_level": "Alta"
+  },
+  {
+    "id": 5,
+    "title": "Analisi predittiva nel settore finanziario",
+    "category": "Data Science",
+    "confidence": 0.6666666666666666,
+    "confidence_level": "Media"
+  },
+  {
+    "id": 6,
+    "title": "AI per la diagnosi precoce del cancro",
+    "category": "AI Medica",
+    "confidence": 0.5,
+    "confidence_level": "Media"
+  },
+  {
+    "id": 7,
+    "title": "Ricetta tradizionale della pizza napoletana",
+    "category": "ALTRO",
+    "confidence": 0.3919871747493744,
+    "confidence_level": "Bassa"
+  },
+  {
+    "id": 8,
+    "title": "Gestione progetti software con metodologie agili",
+    "category": "ALTRO",
+    "confidence": 0.8,
+    "confidence_level": "Alta"
+  }
+]
