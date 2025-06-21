@@ -240,10 +240,10 @@ Il server logga automaticamente:
 - Errori di predizione
 - Performance
 
-Controlla i logs per diagnosticare eventuali problemi.
+Controlla i logs per eventuali problemi.
 
 ---
 
-🎉 **Il tuo classificatore AI è ora pronto per l'uso in produzione!**
+🎉 **Buona fortuna BBY!**
 
-Mantieni il server attivo e potrai classificare migliaia di testi senza perdite di performance.
+Mantieni il server attivo e potrai classificare migliaia di testi senza (troppe) perdite di performance.
