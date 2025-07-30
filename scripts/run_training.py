@@ -6,11 +6,11 @@ Script per avviare il training del modello AI
 import sys
 import os
 
-# Aggiungi il percorso corrente al PATH
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Add project root to Python path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from ai_classifier import AITextClassifier
-from training_data import ALL_TRAINING_DATA
+from src.ai_classification.data.training_data import ALL_TRAINING_DATA
 
 def main():
     print("🚀 AVVIO TRAINING MODELLO AI")
