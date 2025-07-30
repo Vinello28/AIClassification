@@ -48,6 +48,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+coverage/
 
 # Translations
 *.mo
@@ -97,6 +98,10 @@ celerybeat.pid
 
 # Environments
 .env
+.env.local
+.env.development
+.env.test
+.env.production
 .venv
 env/
 venv/
@@ -128,20 +133,23 @@ dmypy.json
 
 # Transformers cache
 transformers_cache/
+.transformers_cache/
 
-# Model files
+# HuggingFace cache
+.cache/
+
+# Model files and data
 models/
 logs/
 data/
+*.model
+*.bin
 
 # Weights & Biases
 wandb/
 
 # TensorBoard
 runs/
-
-# HuggingFace
-.cache/
 
 # OS generated files
 .DS_Store
@@ -161,3 +169,16 @@ Thumbs.db
 
 # PyCharm
 .idea/
+
+# Docker
+.dockerignore
+
+# Backup files created during refactoring
+*_old.py
+*_backup.py
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
