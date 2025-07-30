@@ -4,11 +4,12 @@ Test script per verificare il funzionamento dello shuffle del dataset
 """
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Add project root to Python path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from ai_classifier import AITextClassifier
-from training_data import ALL_TRAINING_DATA
-from config import TRAINING_CONFIG
+from src.ai_classification.core.classifier import AITextClassifier
+from src.ai_classification.data.training_data import ALL_TRAINING_DATA
+from src.ai_classification.core.config import TRAINING_CONFIG
 
 def test_shuffle():
     """Test per verificare che lo shuffle funzioni correttamente"""
