@@ -45,8 +45,8 @@ jobs:
     
     - name: Test imports and basic functionality
       run: |
-        python validate_refactoring.py
         python -c "from src.ai_classification.core.config import CATEGORIES; print(f'Loaded {len(CATEGORIES)} categories')"
+        python -c "from src.ai_classification.data.training_data import ALL_TRAINING_DATA; print(f'Loaded {len(ALL_TRAINING_DATA)} training samples')"
     
     - name: Run tests
       run: |
