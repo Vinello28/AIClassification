@@ -1,24 +1,124 @@
-# 🤖 Classificatori e Dove Trovarli
+# 🤖 AI Classification - Dockerized & Refactored
 
-## 📋 Panoramica
+## 📋 Overview
 
-Classificatore AI leggero completamente operativo come **server API**! Il modello rimane caricato in memoria (VRAM della GPU) e può gestire migliaia di richieste senza dover ricaricare i pesi.
+A professional AI text classification system built with modern software engineering principles. This system classifies text into AI-related categories using a fine-tuned transformer model, packaged as a containerized microservice.
 
-## 🚀 Avvio del Sistema
+### 🏗️ Architecture
 
-### 1. Avvia il Server
-```bash
-python server.py
+```
+/
+├── src/ai_classification/          # Main package
+│   ├── core/                      # Core classification logic
+│   │   ├── classifier.py          # Main classifier class
+│   │   ├── model_utils.py         # Model management utilities
+│   │   └── config.py              # Configuration settings
+│   ├── api/                       # REST API components
+│   │   ├── server.py              # FastAPI server
+│   │   └── client.py              # API client
+│   ├── data/                      # Data management
+│   │   └── training_data.py       # Training datasets
+│   └── utils/                     # Utility functions
+├── tests/                         # Test suite
+├── scripts/                       # Utility scripts
+├── docker/                        # Docker configuration
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   └── nginx.conf
+├── setup.py                       # Package installation
+├── Makefile                       # Development commands
+└── requirements.txt               # Dependencies
 ```
 
-Il server:
-- Carica automaticamente il modello addestrato in GPU
-- Si avvia sulla porta 8000
-- Rimane in ascolto per le richieste
-- Mantiene il modello sempre in memoria
+## 🚀 Quick Start
 
-### 2. Verifica lo Stato
-Vai su: http://localhost:8000/docs per vedere l'interfaccia API
+### Option 1: Docker (Recommended)
+
+```bash
+# Build and run with Docker Compose
+cd docker
+docker-compose up -d
+
+# Or build manually
+docker build -f docker/Dockerfile -t ai-classification:latest .
+docker run -p 8000:8000 ai-classification:latest
+```
+
+### Option 2: Local Development
+
+```bash
+# Setup development environment
+make dev-setup
+source venv/bin/activate  # Linux/Mac
+# or venv\Scripts\activate # Windows
+
+# Install dependencies  
+make install-dev
+
+# Start the server
+make server
+```
+
+## 🔧 Development
+
+### Prerequisites
+- Python 3.8+
+- CUDA-compatible GPU (optional, will use CPU otherwise)
+- Docker (for containerized deployment)
+
+### Development Commands
+
+```bash
+make help              # Show all available commands
+make install-dev       # Install in development mode
+make test             # Run tests
+make lint             # Check code quality
+make format           # Format code
+make docker-build     # Build Docker image
+make server           # Start development server
+```
+
+## 📡 API Usage
+
+### Server Endpoints
+
+- `GET /` - Health check
+- `GET /health` - Detailed health status
+- `POST /predict` - Single text classification
+- `POST /predict_batch` - Batch text classification
+- `GET /docs` - Interactive API documentation
+
+### Using the Client
+
+```python
+from src.ai_classification.api.client import AIClassificationClient
+
+client = AIClassificationClient()
+
+# Single prediction
+result = client.predict("GPT-4 is a language model")
+print(f"Category: {result['category']}, Confidence: {result['confidence']:.3f}")
+
+# Batch predictions
+texts = ["Machine learning algorithms", "Cooking recipes", "Computer vision"]
+results = client.predict_batch(texts)
+for r in results:
+    print(f"{r['text']} → {r['category']} ({r['confidence']:.3f})")
+```
+
+### Direct HTTP Requests
+
+```bash
+# Single prediction
+curl -X POST "http://localhost:8000/predict" \
+     -H "Content-Type: application/json" \
+     -d '{"text": "Neural networks and deep learning"}'
+
+# Batch prediction
+curl -X POST "http://localhost:8000/predict_batch" \
+     -H "Content-Type: application/json" \
+     -d '["AI research", "Cooking tips", "Robotics"]'
+```
 
 ## 💻 Come Usare il Classificatore
 
